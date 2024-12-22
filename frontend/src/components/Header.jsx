@@ -17,9 +17,9 @@ const Header = () => {
         </h1>
 
         <nav className="space-x-4">
-          <a href="#home" className="text-gray-700 hover:text-purple-600"><Link to="/">Home</Link></a>
-          <a href="#categories" className="text-gray-700 hover:text-purple-600"><Link to="/shop">Shop</Link></a>
-          <a href="#contact" className="text-gray-700 hover:text-purple-600"><Link to="/cart">Cart</Link></a>
+          <Link to="/" className="text-gray-700 hover:text-purple-600">Home</Link>
+          <Link to="/shop" className="text-gray-700 hover:text-purple-600">Shop</Link>
+         <Link to="/cart" className="text-gray-700 hover:text-purple-600">Cart</Link>
 
           <button
             onClick={toggleProfileMenu}
@@ -40,7 +40,10 @@ const Header = () => {
                 <Link to="/signup">Signup</Link>
             </li>
             <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">
-              <Link to="/seller">Seller</Link>
+              <Link to="/sellersign">Seller Signup</Link>
+            </li>
+            <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">
+              <Link to="/sellerlogin">Seller Login</Link>
             </li>
             <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">Signout</li>
           </ul>

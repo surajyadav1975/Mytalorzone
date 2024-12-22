@@ -64,13 +64,18 @@ router.post("/addtocart", async (req, res) => {
 router.post("/get-cart", async (req, res) => {
   try {
     const { userId } = req.body;
-    console.log(userId)
     const cart = await Cart.findOne({ userId});
-
+    if(!cart){
+      return res.status(400).json({ message: "Cart is empty" });
+    }
+    const productIds = cart.productsInCart.map(item => item.productId);
+    const products = await Product.find({
+      '_id': { $in: productIds } 
+    });
 
     res.status(200).json({
       success: true,
-      cart
+      products
     });
   } catch (error) {
     res
