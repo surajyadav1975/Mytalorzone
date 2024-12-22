@@ -12,7 +12,6 @@ import SellerLogin from "./components/Sellerlogin";
 const App = () => {
   return (
     <Router>
-      <Myprovider>
         <Routes>
           <Route path="/" element={<Home_page/>} />
           <Route path="/login" element={<Login/>} />
@@ -23,7 +22,6 @@ const App = () => {
           <Route path="/shop" element={<ShopPage />} />
           <Route path="/cart" element={<CartPage />} />
         </Routes>
-      </Myprovider>
     </Router>
   );
 };
