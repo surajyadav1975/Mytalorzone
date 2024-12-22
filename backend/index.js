@@ -22,7 +22,7 @@ const app = express();
 app.use(
   cors({
     origin: [
-      "http://localhost:5174",
+      "https://mytalorzone-g2mr-67f6f9ohp-suraj-yadavs-projects-35b9b057.vercel.app",
       "https://merabestie.com",
       "https://hosteecommerce.vercel.app",
     ],
