@@ -21,7 +21,7 @@ const app = express();
 // Middleware
 app.use(
   cors({
-    origin:'https://mytalorzone-iota.vercel.app',
+    origin:'https://mytalorzone-g2mr-67f6f9ohp-suraj-yadavs-projects-35b9b057.vercel.app',
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
