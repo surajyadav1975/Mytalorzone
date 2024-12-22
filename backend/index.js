@@ -22,9 +22,7 @@ const app = express();
 app.use(
   cors({
     origin: [
-      "https://mytalorzone-g2mr-67f6f9ohp-suraj-yadavs-projects-35b9b057.vercel.app",
-      "https://merabestie.com",
-      "https://hosteecommerce.vercel.app",
+      "https://mytalorzone-g2mr-67f6f9ohp-suraj-yadavs-projects-35b9b057.vercel.app"
     ],
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
