@@ -22,8 +22,8 @@ const app = express();
 app.use(
   cors({
     origin: 'https://mytalorzone-n6ak.vercel.app', // Allowed origin
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allowed methods
-    allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
+    methods: 'GET,POST,PUT,DELETE,PATCH,OPTIONS',
+    allowedHeaders: 'Content-Type, Authorization',
   })
 );
 
