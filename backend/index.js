@@ -24,16 +24,10 @@ app.use(
     origin:'https://mytalorzone-n6ak.vercel.app',
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
+    allowedHeaders: ["Content-Type", "Authorization","X-Requested-With"],
   })
 );
-app.options('*', cors()); 
-app.options('*', (req, res) => {
-  res.header('Access-Control-Allow-Origin', 'https://mytalorzone-n6ak.vercel.app');
-  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-  res.sendStatus(200); // Respond OK
-});
+
 app.use(express.json());
 app.use(require("cookie-parser")());
 app.use(express.urlencoded({ extended: true }));
