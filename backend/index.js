@@ -18,12 +18,6 @@ require("dotenv").config();
 
 const app = express();
 
-app.use(
-  cors({
-    origin: '*',  // Allow all origins
-  })
-);
-
 // Middleware
 app.use(
   cors({
@@ -46,11 +40,6 @@ app.use(
       mongoUrl: process.env.MONGO_URI,
       collectionName: "sessions",
     }),
-    cookie: {
-      secure: false,
-      httpOnly: true,
-      maxAge: 24 * 60 * 60 * 1000, // 1 day
-    },
   })
 );
 
