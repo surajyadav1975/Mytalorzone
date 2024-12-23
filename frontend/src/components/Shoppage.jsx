@@ -14,7 +14,6 @@ const ShopPage = () => {
           headers: {
             'Content-Type': 'application/json',
           },
-          credentials: 'include',
         });
         const data = await response.json();
         setProducts(data.products); // Assuming data has a 'products' array
