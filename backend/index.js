@@ -21,7 +21,7 @@ const app = express();
 // Middleware
 app.use(
   cors({
-    origin: '*', // Allowed origin
+    origin: 'https://mytalorzone-n6ak.vercel.app', // Allowed origin
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allowed methods
     allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
   })
