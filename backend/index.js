@@ -19,13 +19,13 @@ require("dotenv").config();
 const app = express();
 
 // Middleware
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "https://mytalorzone-n6ak.vercel.app"); // Allow requests from this origin
-  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS"); // Allow these HTTP methods
-  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization"); // Allow these headers
-  res.header("Access-Control-Allow-Credentials", "true"); // Allow cookies and credentials
-  next();
-});
+app.use(
+  cors({
+    origin: '*', // Allowed origin
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allowed methods
+    allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
+  })
+);
 
 app.use(express.json());
 app.use(require("cookie-parser")());
