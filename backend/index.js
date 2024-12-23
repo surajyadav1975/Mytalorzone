@@ -29,7 +29,7 @@ app.use(
 );
 app.options('*', cors()); 
 app.options('*', (req, res) => {
-  res.header('Access-Control-Allow-Origin', 'https://mytalorzone-g2mr-67f6f9ohp-suraj-yadavs-projects-35b9b057.vercel.app');
+  res.header('Access-Control-Allow-Origin', 'https://mytalorzone-n6ak.vercel.app');
   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
   res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   res.sendStatus(200); // Respond OK
