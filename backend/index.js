@@ -21,7 +21,7 @@ const app = express();
 // Middleware
 app.use(
   cors({
-    origin:'https://mytalorzone-g2mr-67f6f9ohp-suraj-yadavs-projects-35b9b057.vercel.app',
+    origin:'http://localhost:5174',
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],

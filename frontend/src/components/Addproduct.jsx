@@ -9,6 +9,7 @@ const AdminAddProduct = () => {
     img: '',
     category: '',
     rating: 0,
+    productId: '',
     inStockValue: 0,
     soldStockValue: 0,
   });
@@ -43,6 +44,7 @@ const AdminAddProduct = () => {
           img: '',
           category: '',
           rating: 0,
+          productId: '',
           inStockValue: '',
           soldStockValue: '',
         });
@@ -126,7 +128,8 @@ const AdminAddProduct = () => {
           </button>
         </form>
       </div>
-    </div></>
+    </div>
+        </>
   );
 };
 

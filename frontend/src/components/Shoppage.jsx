@@ -10,7 +10,12 @@ const ShopPage = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch(`${apiurl}get-product`);
+        const response = await fetch(`${apiurl}get-product`, { 
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          credentials: 'include',
+        });
         const data = await response.json();
         setProducts(data.products); // Assuming data has a 'products' array
       } catch (error) {

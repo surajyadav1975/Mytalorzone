@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';  // For navigation after successful login
 import Header from './Header';
 
+const apiurl = import.meta.env.VITE_API_URL;
 const SellerLoginPage = () => {
   const [email, setEmail] = useState('');
-  const [sellerId, setSellerId] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const navigate = useNavigate();  // For redirecting after successful login
@@ -13,16 +13,15 @@ const SellerLoginPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     
-    if (!email || !sellerId || !password) {
+    if (!email || !password) {
       setErrorMessage("All fields are required.");
       return;
     }
 
     // API call to authenticate seller (replace with your backend API endpoint)
-    const loginData = { email, sellerId, password };
-
+    const loginData = { email, password };
     try {
-      const response = await fetch('http://localhost:5000/api/seller/login', {
+      const response = await fetch(`${apiurl}admin/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -34,7 +33,7 @@ const SellerLoginPage = () => {
 
       if (result.success) {
         // Redirect to seller dashboard or home page on successful login
-        navigate('/seller-dashboard');
+        navigate('/addproduct');
       } else {
         setErrorMessage(result.message || 'Login failed. Please try again.');
       }
@@ -67,20 +66,6 @@ const SellerLoginPage = () => {
               onChange={(e) => setEmail(e.target.value)}
               className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               placeholder="Enter your email"
-              required
-            />
-          </div>
-
-          <div className="mb-4">
-            <label htmlFor="sellerId" className="block text-sm font-semibold text-gray-600 mb-2">Seller ID</label>
-            <input
-              type="text"
-              id="sellerId"
-              name="sellerId"
-              value={sellerId}
-              onChange={(e) => setSellerId(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              placeholder="Enter your seller ID"
               required
             />
           </div>

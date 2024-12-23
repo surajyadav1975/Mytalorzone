@@ -6,37 +6,23 @@ const router = express.Router();
 // Seller Login
 router.post("/login", async (req, res) => {
   try {
-    const { sellerId, emailOrPhone, password } = req.body;
-
+    const { email, password } = req.body;
     // Validate required fields
-    if (!sellerId || !emailOrPhone || !password) {
+    if (!email || !password) {
       return res.status(400).json({
         error: "Missing required fields",
-        details: "Seller ID, email/phone, and password are required",
+        details: "email, and password are required",
       });
     }
 
     // Find seller by ID and email/phone
-    const seller = await Seller.findOne({
-      sellerId,
-      $or: [{ email: emailOrPhone }, { phoneNumber: emailOrPhone }],
-    });
-
+    const seller = await Seller.findOne({ email });
     if (!seller) {
       return res.status(400).json({
         error: "Invalid credentials",
         details: "No seller found with provided ID and email/phone",
       });
     }
-
-    // Check if email/phone is verified
-    if (!seller.emailVerified && !seller.phoneVerified) {
-      return res.status(401).json({
-        error: "Account not verified",
-        details: "Please verify your email or phone number before logging in",
-      });
-    }
-
     // Verify password
     const isMatch = await bcrypt.compare(password, seller.password);
     if (!isMatch) {
@@ -45,15 +31,10 @@ router.post("/login", async (req, res) => {
         details: "Incorrect password provided",
       });
     }
-    // Update loggedIn status
-    seller.loggedIn = "loggedin";
-    await seller.save();
     // Store sellerId in session
-    req.session.sellerId = sellerId;
     res.status(200).json({
       success: true,
       message: "Login successful",
-      sellerId,
     });
   } catch (error) {
     res.status(500).json({
